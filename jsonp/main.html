@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let jsonp=(url,data={},callback='callback')=>{
+            //准备好带有padding的请求url
+            // 1. url +data script 需要的src
+            let dataStr=url.indexOf('?') === -1?'?':'&'
+            
+            for(let key in data){
+                dataStr +=`${key}=${data[key]}&`
+            }
+            dataStr +=`callback=` +callback
+            // 构造script
+            let oScript = document.createElement('script')
+            oScript.src=url+dataStr
+           document.body.appendChild(oScript) 
+            // window[callback]=(data)=>{
+            //     console.log(data);
+            // }
+            return new Promise((resolve,reject)=>{
+                window[callback]=(data)=>{
+                    try{
+                        resolve(data)
+                    }catch(e){
+                        reject(e)
+                    }finally{
+                        oScript.parentNode.removeChild(oScript) //从父级删除
+                    }
+                }
+            })
+            // console.log(dataStr);
+            // 1.js可以创建标签document.createElement
+            // 函数作用域  外界可以访问到  window
+        }
+
+        //请使用jsonp原理， 封装jsonp函数，不用再为了远程资源，
+        //1. 加一个函数 2. 加一个script 标签
+        jsonp('https://photo.sina.cn/aj/index?a=1',{
+            page:1,
+            cate:'recommend'
+        })
+        .then(response=>{
+            console.log(response,'---then');
+        })
+
+        jsonp('http://localhost:3000',{
+            a:1
+        })
+        .then(response =>{
+            console.log(response,'---------');
+        })
+    </script>
+</body>
+</html>
