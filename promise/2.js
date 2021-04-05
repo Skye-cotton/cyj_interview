@@ -17,7 +17,7 @@ class Promise{
             if(this.state === 'pending'){
             this.value=value
             console.log(this.value)
-            this.state='fullfilled'
+            this.state='fulfilled'
         }
         }
         let reject=(reason)=>{

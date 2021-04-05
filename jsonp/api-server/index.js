@@ -1,7 +1,7 @@
 var http = require('http');
 http.createServer(function(req, res){
 // req url  callback=?
-console.log(req.url);
+console.log(req.url); //结果： /?a=1&callback=callback
 let data = {a: 1};
 res.writeHead(200, {'Content-type' : 'text/json'})
   const reg = /callback=([\w]+)/

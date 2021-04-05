@@ -14,7 +14,7 @@
   3. callback({}) JSON +padding 
 
  xhr/fetch 因运行在沙箱中的js同源机制 无法请求跨域sina 资源
- 迂回到使用script 标签 有跨域访问资源的能力（link img a），http请求中
+ 迂回到使用script 标签 有跨域访问资源的能力（link img a href），http请求中
  带上&callback=callback 这个padding， sina服务器就在json数据外面包一层callback函数，
  将这个带有padding的，可以在script得到后运行的函数，页面上已准备好了这个函数，从而效果一样。
   

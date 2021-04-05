@@ -42,13 +42,13 @@
 
         //请使用jsonp原理， 封装jsonp函数，不用再为了远程资源，
         //1. 加一个函数 2. 加一个script 标签
-        jsonp('https://photo.sina.cn/aj/index?a=1',{
-            page:1,
-            cate:'recommend'
-        })
-        .then(response=>{
-            console.log(response,'---then');
-        })
+        // jsonp('https://photo.sina.cn/aj/index?a=1',{
+        //     page:1,
+        //     cate:'recommend'
+        // })
+        // .then(response=>{
+        //     console.log(response,'---then');
+        // })
 
         jsonp('http://localhost:3000',{
             a:1
