@@ -22,3 +22,4 @@ graphql 可以做以下事情
     3. schema  hero + rootValue
       就有了
     4. graphql 可以省去很多的请求浪费
+    5. 前端可以自己决定用哪些字段
