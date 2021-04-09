@@ -6,3 +6,5 @@
   - 回调函数被默认传入三个值，依次为当前元素、当前索引、整个数组。item,index,array
   - 对原来的数组没有影响
   2. reduce
+  3. filter
+  4. sort
