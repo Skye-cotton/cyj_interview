@@ -92,9 +92,11 @@
   import { register, login } from '@/service/user.js'
   import { Toast } from 'vant'
   import md5 from'js-md5'
+  import { useRouter } from 'vue-router'
 
   export default {
     setup() {
+      const router=useRouter()
       const verifyRef = ref(null)
       const state = reactive({
         username: "",
@@ -123,6 +125,8 @@
             
           })
           console.log(data);
+          localStorage.setItem('token',data)
+          router.push({path:'/home'})
         } else {
           await register({
             'loginName': state.username1,
