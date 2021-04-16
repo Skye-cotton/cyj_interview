@@ -1,18 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import NavWrap from './component/navWrap/navWrap'
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom'
+import Child from './component/Child/Child'
+import myContext from './component/createContext'
+
+
+
+const [count,setCount] =useState(0)
 
 ReactDOM.render(
-  <React.StrictMode>
-    <NavWrap />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+    
+    <div>
+        <p>点击了 {count} 次</p>
+        <button onClick={()=>{setCount(count+1)}}>点击</button>
+        <myContext.Provider value={count}>
+            <Child />
+        </myContext.Provider>
+    </div>
+    ,document.getElementById('root')
+)
