@@ -1,17 +1,22 @@
 import React from 'react';
 import { NavBar, Icon, List } from 'antd-mobile';
-import {getQueryString} from '../utils'
-import {useHistory} from 'react-router-dom'
+import { getQueryString } from '../utils'
+import { useHistory, Link } from 'react-router-dom'
 
 const Detail = () => {
-    const id=getQueryString('id')
-    const history=useHistory()
+  const id = getQueryString('id')
+  const history = useHistory()
   return (
     <div className="diary-detail">
       <NavBar
         mode="light"
         icon={<Icon type="left" />}
-        onLeftClick={() => history.goBack()}//返回上一级
+        onLeftClick={() => history.goBack()}
+        rightContent={[
+          <Link to={{ pathname: 'edit' }}>
+            <Icon key="1" type="ellipsis" />
+          </Link>
+        ]}
       >
         明天跟小米一起吃饭{id}
       </NavBar>

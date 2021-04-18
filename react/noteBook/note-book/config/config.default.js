@@ -42,6 +42,25 @@ module.exports = appInfo => {
       '.html': 'ejs',
     },
   };
+  exports.mysql = {
+    // database configuration
+    client: {
+      // host
+      host: 'localhost',
+      // port
+      port: '3307',
+      // username
+      user: 'root',
+      // password
+      password: 'root',
+      // database
+      database: 'diary',    
+    },
+    // load into app, default is open
+    app: true,
+    // load into agent, default is close
+    agent: false,
+  };
 
   return {
     ...config,
