@@ -17,7 +17,17 @@ Array.prototype.map=function(callbackFn,thisArg){
     let len= O.length >>> 0;
     let A = new Array(len)
     for(let k=0;k<len;k++){
-        
+        //使用in在原型链查找
+        // 如果使用hasOwnProperty，只能找私有属性
+        if(k in O){
+            let kValue=O[k]
+            //依次传入this,当前项，当前索引，整个数组
+            let mappedValue=callbackFn.call(T,kValue,k,O)
+            A[k]=mappedValue
+        }
     }
+    return A
 }
-Array.prototype.map((a,b)=>{a+b},[1,2,3])
+
+
+console.log(Array.prototype.map((a,b)=>{a+b},[1,2,3]));
