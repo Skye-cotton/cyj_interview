@@ -27,7 +27,7 @@ function scale36(n){
         n=parseInt(n/36)  //每次都要跟新n
         console.log(n,'-----');
     }
-    return arr.toString()
+    return arr.join('')
 }
 
 console.log(scale36(1409980009869)); //10
