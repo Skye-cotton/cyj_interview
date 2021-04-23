@@ -24,5 +24,13 @@ class DiaryService extends Service{
             return null
         }
       }
+      async updata(params){
+        const {ctx}=this
+        try {
+            
+        } catch (error) {
+            
+        }
+      }
 }
 module.exports=DiaryService
