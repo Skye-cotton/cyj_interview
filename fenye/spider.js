@@ -23,6 +23,7 @@ module.exports=(pageStart)=>{
                 if(err) reject(err)
                 let resObj=JSON.parse(res.text)
                 console.log(resObj);
+                reslove()
             })
 
     })
