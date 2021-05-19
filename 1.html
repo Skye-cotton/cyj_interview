@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+.container {
+width: 500px;
+padding: 200px 0;
+background-color: yellow;
+}
+
+.vertical {
+height: 100px;
+width: 100px;
+background-color: blue;
+}
+</style>
+</head>
+<script language="JavaScript">
+    function Person() {
+    }
+    Person.prototype.move = function () {
+        alert(this.name + "移动");
+    }
+    function Student(name) {
+        this.name = name;
+    }
+    Student.prototype.study = function () {
+        alert(this.name + "学习");
+    }
+    Student.prototype = new Person();
+    var st = new Student("张三丰");
+    st.study();
+    st.move();
+</script>
+<body>
+    <div class="container">
+        <div class="vertical">
+        </div>
+    </div>
+</body>
+
+</html>

@@ -2,8 +2,6 @@ const path=require('path')
 var basePath = __dirname;
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 
-
-
 module.exports={
     context: path.join(basePath, "src"),
     entry:[
