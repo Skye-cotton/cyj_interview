@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <!-- 容器 -->
+     <div id="test"></div>
+     <!-- 引入 -->
+     <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+     <script type="text/babel">
+        class Person extends React.Component{
+            render(props) {
+                const {name,age,sex}=this.props
+                return (
+                    <ul>
+                        <li>姓名：{name}</li>
+                        <li>年龄：{age}</li>
+                        <li>性别：{sex}</li>    
+                    </ul>
+                )    
+            }
+
+        }
+        const p={name:"小陈",age:"18",sex:"女"}
+        //对象展开只能在组件标签中使用
+        ReactDOM.render(<Person {...p} />,document.getElementById('test'))
+     </script>
+</body>
+</html>
