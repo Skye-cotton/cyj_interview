@@ -9,6 +9,9 @@ export default {
             {
                 path:'helloworld',
                 component:'./HelloWorld',
+            },{
+                path:'puzzlecards',
+                component:'./puzzlecards',
             }
         ]
     }]

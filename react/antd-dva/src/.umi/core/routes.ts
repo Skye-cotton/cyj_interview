@@ -14,6 +14,11 @@ export function getRoutes() {
         "path": "/helloworld",
         "component": require('E:/git_pro/cyj_interview/react/antd-dva/src/page/HelloWorld').default,
         "exact": true
+      },
+      {
+        "path": "/puzzlecards",
+        "component": require('E:/git_pro/cyj_interview/react/antd-dva/src/page/puzzlecards').default,
+        "exact": true
       }
     ]
   }
