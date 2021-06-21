@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img{
+            width: 200px;
+            height: 200px;
+            background-color: gray;
+        }
+        .pic{
+            /* 图片样式 */
+            
+        }
+    </style>
+</head>
+<!-- <script>
+    var num=0
+    //获得img标签元素
+    const img = document.getElementsByTagName('img')
+    //获得可视区域高度
+    const viewHeight= window.innerHeight||document.documentElement.clientHeight
+    function lazyload(){
+        for(let i=num;i<img.length;i++){
+            let distance=viewHeight-img[i].getBoundingClientRect().top;
+            if(distance>=0){
+                //给元素写入真实的src,展示图片
+                img[i].src=img[i].getAttribute('data-src')
+                num ++;
+            }
+        }
+    }
+    //监听事件scroll,第三个参数为false表示可以渲染多次
+    window.addEventListener('scroll',lazyload,false)
+</script> -->
+
+<!-- <script>
+    //懒加载
+    var num=0;
+    const img=document.getElementsByTagName('img')
+    //可视区域高度
+    const viewHeight=window.innerHeight|| document.documentElement.clientHeight
+    //懒加载函数
+    function lazyload(){
+        for(let i=num;i<img.length;i++){
+            let distance=viewHeight-img[i].getBoundingClientRect().top;
+            if(distance>=0){
+                img[i].src=img[i].getAttribute('data-src')
+                num++
+            }
+        }
+    }
+
+    //事件监听scroll
+    window.addEventListener('scroll',lazyload,false)
+</script> -->
+
+<!-- <script>
+    //传入两个参数 fn 我们需要包装的事件回调，interval 事件间隔的阈值
+    function throttle(fn,interval){
+        let last=0;//上一次回调的时间
+        return function(){
+            let context=this;//保留调用时的this上下文
+            let args=arguments;//保留调用时传入的参数
+            //记录本次触发回调的时间
+            let now=+new Date()
+            //判断，如果本次触发的时间减去上次触发的时间大于我们设置的interval，则执行if语句
+        if(now-last >=interval){
+            last=now //调回当前时间
+            fn.apply(context,args)
+        }
+        }
+        
+    }
+    const better_scroll=throttle(()=>{console.log('发生了滚动事件');},1000)
+    document.addEventListener('scroll',better_scroll)
+</script> -->
+
+<!-- <script>
+    //节流
+    function throttle(fn,interval){
+        var last=0;//上一次时间
+        return function(){
+            //获取此时调用的this
+        const context=this
+        //获取此时事件
+        const args=arguments;
+        //获取此时时间
+        const now=+new Date()
+        if(now-last >=interval){
+            last=now;
+            fn.apply(context,args)
+        }
+        }
+        
+    }
+    const better_scroll=throttle(()=>{console.log('++++++');},1000)
+    window.addEventListener('scroll',better_scroll)
+</script> -->
+
+<!-- <script>
+    function debounce(fn,delay){
+
+        //定时器
+        let timer=null
+        return function(){
+            const context=this;
+            const args=arguments;
+            if(timer){
+                clearTimeout(timer)
+            }
+            //设立新的定时器
+            timer=setTimeout(function(){
+                fn.apply(context,args)
+            },delay)
+        }
+    }
+</script> -->
+
+<script>
+    function debounce(fn,delay){
+        // 定义一个计时器
+        var timer=null;
+        return function(){
+            let context=this;
+            let args=arguments;
+            if(timer){
+                clearTimeout(timer)
+            }
+            timer=setTimeout(function(){
+                fn.apply(context,args)
+            },delay)
+        }
+    }
+
+    const better_scroll=debounce(()=>{console.log('+++++');},1000)
+    window.addEventListener('scroll',better_scroll)
+</script>
+
+<body>
+    <div class="container">
+        <div class="img">
+            <img data-src="./images/1.jpg" alt="加载中" class="pic">
+        </div>
+        <div class="img">
+            <img data-src="./images/2.jpg" alt="加载中" class="pic">
+        </div>
+        <div class="img">
+            <img data-src="./images/3.jpg" alt="加载中" class="pic">
+        </div>
+        <div class="img">
+            <img data-src="./images/4.jpg" alt="加载中" class="pic">
+        </div>
+        <div class="img">
+            <img data-src="./images/5.jpg" alt="加载中" class="pic">
+        </div>
+        <div class="img">
+            <img data-src="./images/6.jpg" alt="加载中" class="pic">
+        </div>
+        <div class="img">
+            <img data-src="./images/7.jpg" alt="加载中" class="pic">
+        </div>
+        <div class="img">
+            <img data-src="./images/8.jpg" alt="加载中" class="pic">
+        </div>
+    </div>
+</body>
+</html>
